@@ -5,10 +5,20 @@ export default function Footer() {
                 BuildBox — open to <span className="text-(--accent)">everyone</span>
             </p>
             <div className="flex gap-4">
-                <a href="#" className="font-mono text-[11px] text-(--text) hover:text-(--accent) transition-colors">README</a>
-                <a href="#" className="font-mono text-[11px] text-(--text) hover:text-(--accent) transition-colors">Contributing guide</a>
                 <a
-                    href="https://github.com"
+                    href="https://github.com/rajbodhak/BuildBox/blob/main/README.md"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-mono text-[11px] text-(--text) hover:text-(--accent) transition-colors">
+                    README
+                </a>
+                <a
+                    href="#how-to-contribute"
+                    className="font-mono text-[11px] text-(--text) hover:text-(--accent) transition-colors">
+                    Contributing guide
+                </a>
+                <a
+                    href="https://github.com/rajbodhak/BuildBox"
                     target="_blank"
                     rel="noreferrer"
                     className="font-mono text-[11px] text-(--text) hover:text-(--accent) transition-colors"

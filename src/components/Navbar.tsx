@@ -14,7 +14,7 @@ export default function Navbar() {
                     How to contribute
                 </a>
                 <a
-                    href="https://github.com"
+                    href="https://github.com/rajbodhak/BuildBox"
                     target="_blank"
                     rel="noreferrer"
                     className="font-mono text-sm text-(--text) hover:text-(--accent) transition-colors"
