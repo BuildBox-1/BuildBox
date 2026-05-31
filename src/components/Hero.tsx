@@ -1,3 +1,4 @@
+import { Link } from "react-router"
 export default function Hero() {
     return (
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 pt-16 pb-12 border-b border-(--border) items-end">
@@ -18,7 +19,10 @@ export default function Hero() {
                     A shared space to practice Git workflows, sharpen frontend skills,
                     and ship real mini-projects alongside other contributors.
                 </p>
+                <br />
 
+                <h3 className="font-mono text-sm">To Contribute First Go Through:  <Link to="/how-to-contribute" className="font-mono text-sm font-medium bg-gray-800 text-white px-5 py-2.5 rounded-md hover:opacity-75 transition-opacity"
+                > How To Contribute</Link> </h3>
                 <div className="flex gap-3 mt-6 flex-wrap">
                     <a
                         href="https://github.com/rajbodhak/BuildBox"
