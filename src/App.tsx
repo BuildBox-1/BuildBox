@@ -1,18 +1,33 @@
+import { BrowserRouter, Routes, Route } from 'react-router'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import FlowStrip from './components/FlowStrip'
 import ProjectGrid from './components/ProjectGrid'
 import Footer from './components/Footer'
+import ProjectPage from './pages/ProjectPage'
 
-function App() {
+function Landing() {
   return (
-    <div className="w-full max-w-[1126px] mx-auto border-x border-[var(--border)] min-h-svh flex flex-col">
-      <Navbar />
+    <>
       <Hero />
       <FlowStrip />
       <ProjectGrid />
       <Footer />
-    </div>
+    </>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <div className="w-full max-w-[1126px] mx-auto border-x border-(--border) min-h-svh flex flex-col">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/projects/:slug" element={<ProjectPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   )
 }
 

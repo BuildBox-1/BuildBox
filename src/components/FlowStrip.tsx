@@ -8,8 +8,8 @@ const steps = [
 
 export default function FlowStrip() {
     return (
-        <section id="contribute" className="px-6 py-10 border-b border-[var(--border)]">
-            <p className="font-mono text-[11px] text-[var(--text)] uppercase tracking-widest mb-6">
+        <section id="contribute" className="px-6 py-10 border-b border-(--border)">
+            <p className="font-mono text-[11px] text-(--text) uppercase tracking-widest mb-6">
                 Contribution flow
             </p>
 
@@ -17,13 +17,13 @@ export default function FlowStrip() {
                 {steps.map((step, i) => (
                     <div key={step.num} className="flex-1 relative sm:pl-4 first:pl-0">
                         {i > 0 && (
-                            <span className="hidden sm:block absolute left-0 top-4 -translate-y-1/2 text-[var(--accent)] font-mono text-sm">
+                            <span className="hidden sm:block absolute left-0 top-4 -translate-y-1/2 text-(--accent) font-mono text-sm">
                                 →
                             </span>
                         )}
-                        <div className="font-mono text-[11px] text-[var(--accent)] font-medium mb-1">{step.num}</div>
-                        <div className="text-sm font-semibold text-[var(--text-h)] mb-1">{step.title}</div>
-                        <div className="font-mono text-xs font-light text-[var(--text)] leading-relaxed">{step.desc}</div>
+                        <div className="font-mono text-[11px] text-(--accent) font-medium mb-1">{step.num}</div>
+                        <div className="text-sm font-semibold text-(--text-h) mb-1">{step.title}</div>
+                        <div className="font-mono text-xs font-light text-(--text) leading-relaxed">{step.desc}</div>
                     </div>
                 ))}
             </div>

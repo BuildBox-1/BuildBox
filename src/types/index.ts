@@ -6,6 +6,7 @@ export interface Project {
     tag: string
     cat: ProjectCategory
     featured?: boolean
+    slug: string
 }
 
 export type FilterType = 'all' | ProjectCategory

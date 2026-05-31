@@ -10,13 +10,13 @@ export default function ProjectGrid() {
         active === 'all' ? projects : projects.filter((p) => p.cat === active)
 
     return (
-        <section id="projects" className="px-6 py-10 border-b border-[var(--border)]">
+        <section id="projects" className="px-6 py-10 border-b border-(--border)">
 
             <div className="flex items-baseline justify-between mb-6">
-                <h2 className="text-xl font-bold tracking-tight text-[var(--text-h)]">
+                <h2 className="text-xl font-bold tracking-tight text-(--text-h)">
                     Project index
                 </h2>
-                <span className="font-mono text-xs text-[var(--text)]">
+                <span className="font-mono text-xs text-(--text)">
                     {filtered.length} projects
                 </span>
             </div>
@@ -30,8 +30,8 @@ export default function ProjectGrid() {
                         aria-pressed={active === f.value}
                         className={`font-mono text-[11px] px-3 py-1 rounded-full border transition-colors
               ${active === f.value
-                                ? 'border-[var(--accent)] text-[var(--accent)] bg-[var(--accent-bg)]'
-                                : 'border-[var(--border)] text-[var(--text)] hover:border-[var(--accent)] hover:text-[var(--accent)] hover:bg-[var(--accent-bg)]'
+                                ? 'border-(--accent) text-(--accent) bg-(--accent-bg)'
+                                : 'border-(--border) text-(--text) hover:border-(--accent) hover:text-(--accent) hover:bg-(--accent-bg)'
                             }`}
                     >
                         {f.label}
