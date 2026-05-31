@@ -21,7 +21,7 @@ export default function Hero() {
 
                 <div className="flex gap-3 mt-6 flex-wrap">
                     <a
-                        href="https://github.com"
+                        href="https://github.com/rajbodhak/BuildBox"
                         target="_blank"
                         rel="noreferrer"
                         className="font-mono text-sm font-medium bg-(--accent) text-white px-5 py-2.5 rounded-md hover:opacity-85 transition-opacity"
