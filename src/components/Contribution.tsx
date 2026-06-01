@@ -1,5 +1,3 @@
-import React from "react";
-
 const steps = [
     {
         title: "Fork the repository",
@@ -11,10 +9,10 @@ const steps = [
         description:
             "Clone your fork locally and install dependencies. Ensure the project runs successfully before making changes.",
         code: `git clone https://github.com/rajbodhak/BuildBox.git
-                cd BuildBox
-                npm install
-                npm run dev`,
-                    },
+cd BuildBox
+npm install
+npm run dev`,
+    },
     {
         title: "Create a focused branch",
         description:
@@ -67,22 +65,39 @@ git rebase upstream/main`,
     },
 ];
 
-const HowToContribute: React.FC = () => {
+const HowToContribute = () => {
     return (
-        <div style={styles.container}>
-            <h1 style={styles.heading}>How to Contribute</h1>
-            <p style={styles.subtitle}>
+        <div className="w-full max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-14 text-(--text) overflow-hidden">
+
+            {/* Heading */}
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-(--text-h)">
+                How to Contribute
+            </h1>
+
+            <p className="text-center text-xs sm:text-sm mt-2 mb-8 break-words">
                 Follow these steps to contribute to the project.
             </p>
 
-            <div style={styles.stepsContainer}>
+            {/* Steps */}
+            <div className="flex flex-col gap-4 sm:gap-5">
                 {steps.map((step, index) => (
-                    <div key={index} style={styles.card}>
-                        <h2 style={styles.stepTitle}>{step.title}</h2>
-                        <p>{step.description}</p>
+                    <div
+                        key={index}
+                        className="w-full border border-(--border) rounded-lg p-4 sm:p-5 bg-(--code-bg) overflow-hidden"
+                    >
+                        <h2 className="text-sm sm:text-base font-semibold text-(--accent) mb-1 break-words">
+                            {index + 1}. {step.title}
+                        </h2>
+
+                        <p className="text-xs sm:text-sm leading-relaxed break-words">
+                            {step.description}
+                        </p>
+
                         {step.code && (
-                            <pre style={styles.codeBlock}>
-                                <code>{step.code}</code>
+                            <pre className="mt-3 p-3 text-[11px] sm:text-xs bg-(--bg) border border-(--border) rounded-md overflow-x-auto whitespace-pre-wrap break-words">
+                                <code className="break-words">
+                                    {step.code}
+                                </code>
                             </pre>
                         )}
                     </div>
@@ -90,45 +105,6 @@ const HowToContribute: React.FC = () => {
             </div>
         </div>
     );
-};
-
-const styles: { [key: string]: React.CSSProperties } = {
-    container: {
-        maxWidth: "800px",
-        margin: "0 auto",
-        padding: "20px",
-        fontFamily: "Arial, sans-serif",
-    },
-    heading: {
-        textAlign: "center",
-    },
-    subtitle: {
-        textAlign: "center",
-        color: "#666",
-    },
-    stepsContainer: {
-        marginTop: "20px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "16px",
-    },
-    card: {
-        border: "1px solid #cab2b2",
-        borderRadius: "8px",
-        padding: "16px",
-        backgroundColor: "#000000",
-    },
-    stepTitle: {
-        marginBottom: "8px",
-    },
-    codeBlock: {
-        backgroundColor: "#222",
-        color: "#0f0",
-        padding: "10px",
-        borderRadius: "6px",
-        marginTop: "8px",
-        overflowX: "auto",
-    },
 };
 
 export default HowToContribute;
