@@ -1,33 +1,32 @@
-import { useParams, Link } from 'react-router'
+import { Link, useParams } from 'react-router-dom'
 import { lazy, Suspense, type ComponentType, createElement } from 'react'
+import { Component, type ReactNode } from 'react'
 import { projects } from '../data/projects'
 
-// Dynamically import from pages/ folder
-// Contributors create e.g. src/pages/TodoApp.tsx and it auto-loads
-function loadPage(slug: string) {
-    // Convert slug to PascalCase filename: todo-app → TodoApp
-    const name = slug
+const pageModules = import.meta.glob('./*.tsx')
+
+function slugToPascal(slug: string) {
+    return slug
         .split('-')
-        .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+        .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
         .join('')
-    return lazy(() =>
-        import(`../pages/${name}.tsx`).catch(() => ({
-            default: () => null, // will be handled by error boundary below
-        }))
-    )
 }
 
-const pageCache: Record<string, ComponentType> = {}
-
 function getPageComponent(slug: string) {
-    if (!pageCache[slug]) {
-        pageCache[slug] = loadPage(slug)
-    }
-    return pageCache[slug]
+    const filePath = `./${slugToPascal(slug)}.tsx`
+    const importer = pageModules[filePath]
+
+    if (!importer) return null
+
+    return lazy(importer as () => Promise<{ default: ComponentType }>)
 }
 
 export default function ProjectPage() {
     const { slug } = useParams<{ slug: string }>()
+
+    if (!slug) {
+        return null
+    }
 
     const project = projects.find((p) => p.slug === slug)
 
@@ -37,7 +36,7 @@ export default function ProjectPage() {
                 <span className="text-4xl">404</span>
                 <h1 className="text-xl font-semibold text-(--text-h)">Project not found</h1>
                 <p className="font-mono text-sm text-(--text)">
-                    That slug doesn't match any project in the list.
+                    That slug does not match any project in the list.
                 </p>
                 <Link to="/" className="font-mono text-sm text-(--accent) hover:underline">
                     ← Back to home
@@ -46,62 +45,67 @@ export default function ProjectPage() {
         )
     }
 
+    const PageComponent = getPageComponent(slug)
+
+    if (!PageComponent) {
+        return <ComingSoon project={project} />
+    }
+
     return (
         <Suspense fallback={<PageLoader />}>
             <ErrorBoundary fallback={<ComingSoon project={project} />}>
-                {createElement(getPageComponent(slug!))}
+                {createElement(PageComponent)}
             </ErrorBoundary>
         </Suspense>
     )
 }
 
-// ─── Loading state ────────────────────────────────────────────────────────────
 function PageLoader() {
     return (
         <div className="flex items-center justify-center flex-1 py-24">
-            <span className="font-mono text-sm text-(--text) animate-pulse">Loading…</span>
+            <span className="font-mono text-sm text-(--text) animate-pulse">
+                Loading…
+            </span>
         </div>
     )
 }
 
-// ─── Coming soon placeholder ──────────────────────────────────────────────────
-function ComingSoon({ project }: { project: { name: string; icon: string; slug: string } }) {
+function ComingSoon({
+    project,
+}: {
+    project: { name: string; icon: string; slug: string }
+}) {
     return (
         <div className="flex flex-col items-center justify-center flex-1 gap-6 px-6 py-24 text-center">
             <span className="text-5xl">{project.icon}</span>
 
             <div>
-                <h1 className="text-2xl font-bold text-(--text-h) tracking-tight mb-2">
+                <h1 className="mb-2 text-2xl font-bold tracking-tight text-(--text-h)">
                     {project.name}
                 </h1>
-                <p className="font-mono text-sm text-(--text) max-w-[36ch] mx-auto leading-relaxed">
+                <p className="mx-auto max-w-[36ch] font-mono text-sm leading-relaxed text-(--text)">
                     Nobody has built this one yet. Want to be the first?
                 </p>
             </div>
 
-            <div className="bg-(--code-bg) border border-(--border) rounded-xl px-6 py-4 text-left font-mono text-sm text-(--text) max-w-sm w-full">
-                <p className="text-(--accent) mb-2 text-xs uppercase tracking-widest">To claim this project</p>
+            <div className="w-full max-w-sm rounded-xl border border-(--border) bg-(--code-bg) px-6 py-4 text-left font-mono text-sm text-(--text)">
+                <p className="mb-2 text-xs uppercase tracking-widest text-(--accent)">
+                    To claim this project
+                </p>
                 <p>1. Create a branch with your name</p>
-                <p>2. Add <code className="text-(--accent)">src/pages/{slug2pascal(project.slug)}.tsx</code></p>
+                <p>2. Add <code className="text-(--accent)">src/pages/{slugToPascal(project.slug)}.tsx</code></p>
                 <p>3. Build it, commit, open a PR</p>
             </div>
 
-            <Link to="/" className="font-mono text-sm text-(--text) hover:text-(--accent) transition-colors">
+            <Link
+                to="/"
+                className="font-mono text-sm text-(--text) transition-colors hover:text-(--accent)"
+            >
                 ← Back to all projects
             </Link>
         </div>
     )
 }
-
-function slug2pascal(slug: string) {
-    return slug
-        .split('-')
-        .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
-        .join('')
-}
-
-// ─── Minimal error boundary ───────────────────────────────────────────────────
-import { Component, type ReactNode } from 'react'
 
 class ErrorBoundary extends Component<
     { children: ReactNode; fallback: ReactNode },
@@ -114,7 +118,6 @@ class ErrorBoundary extends Component<
     }
 
     render() {
-        if (this.state.hasError) return this.props.fallback
-        return this.props.children
+        return this.state.hasError ? this.props.fallback : this.props.children
     }
 }
