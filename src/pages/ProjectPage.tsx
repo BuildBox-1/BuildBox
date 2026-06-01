@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router'
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, type ComponentType, createElement } from 'react'
 import { projects } from '../data/projects'
 
 // Dynamically import from pages/ folder
@@ -15,6 +15,15 @@ function loadPage(slug: string) {
             default: () => null, // will be handled by error boundary below
         }))
     )
+}
+
+const pageCache: Record<string, ComponentType> = {}
+
+function getPageComponent(slug: string) {
+    if (!pageCache[slug]) {
+        pageCache[slug] = loadPage(slug)
+    }
+    return pageCache[slug]
 }
 
 export default function ProjectPage() {
@@ -37,12 +46,10 @@ export default function ProjectPage() {
         )
     }
 
-    const PageComponent = loadPage(slug!)
-
     return (
         <Suspense fallback={<PageLoader />}>
             <ErrorBoundary fallback={<ComingSoon project={project} />}>
-                <PageComponent />
+                {createElement(getPageComponent(slug!))}
             </ErrorBoundary>
         </Suspense>
     )
