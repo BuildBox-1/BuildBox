@@ -1,134 +1,101 @@
-import React from "react";
-
 const steps = [
     {
-        title: "Fork the repository",
-        description:
-            "Create your own copy of the repository to work independently without affecting the original project.",
-    },
-    {
-        title: "Clone and set up the project",
-        description:
-            "Clone your fork locally and install dependencies. Ensure the project runs successfully before making changes.",
-        code: `git clone https://github.com/rajbodhak/BuildBox.git
+        title: "Fork & Clone the repository",
+        description: "Create your own copy and set up the project locally.",
+        code: `git clone https://github.com/your-username/BuildBox.git
 cd BuildBox
 npm install
 npm run dev`,
     },
     {
-        title: "Create a focused branch",
-        description:
-            "Create a new branch for a single feature or fix. Avoid mixing multiple changes in one branch.",
-        code: "git checkout -b feat/short-description",
+        title: "Sync with main branch",
+        description: "Always start from the latest code to avoid conflicts.",
+        code: `git checkout main
+git pull origin main`,
     },
     {
-        title: "Understand the codebase",
-        description:
-            "Read relevant files, follow existing patterns, and identify where your changes belong before writing code.",
+        title: "Create a feature branch",
+        description: "Work on a separate branch for each feature or fix.",
+        code: "git checkout -b feature/add-auth",
     },
     {
-        title: "Implement your changes",
-        description:
-            "Write clean, maintainable code. Follow naming conventions, file structure, and project guidelines.",
+        title: "Make your changes",
+        description: "Follow project structure and keep changes focused.",
     },
     {
-        title: "Test your changes",
-        description:
-            "Verify your changes work as expected and do not break existing functionality.",
+        title: "Commit your changes",
+        description: "Write clear and meaningful commit messages.",
+        code: `git add .
+git commit -m "feat: add auth system"`,
     },
     {
-        title: "Commit with clear messages",
-        description:
-            "Use meaningful, structured commit messages that explain what and why.",
-        code: 'git commit -m "feat: add project filtering feature"',
+        title: "Push your branch",
+        description: "Upload your branch to GitHub.",
+        code: "git push origin feature/add-auth",
     },
     {
-        title: "Keep your branch updated",
-        description:
-            "Sync with the main repository to avoid merge conflicts before opening a PR.",
-        code: `git fetch upstream
-git rebase upstream/main`,
+        title: "Open a Pull Request",
+        description: "Create a PR to main with a clear title and description. Prefer squash merge.",
     },
     {
-        title: "Push and open a pull request",
-        description:
-            "Push your branch and create a pull request with a clear title and description of your changes.",
-        code: "git push origin feat/short-description",
+        title: "Update based on review",
+        description: "Make changes if requested and push again.",
+        code: `git add .
+git commit -m "fix: review changes"
+git push origin feature/add-auth`,
     },
     {
-        title: "Respond to review feedback",
-        description:
-            "Make requested changes promptly and engage constructively in the review process.",
-    },
-    {
-        title: "Ensure quality before merge",
-        description:
-            "Confirm your code passes checks, follows standards, and is production-ready.",
+        title: "After merge: sync & cleanup",
+        description: "Update local main and remove the feature branch.",
+        code: `git checkout main
+git pull origin main
+
+git branch -D feature/add-auth
+git push origin --delete feature/add-auth`,
     },
 ];
 
-const HowToContribute: React.FC = () => {
+export default function HowToContribute() {
     return (
-        <div style={styles.container}>
-            <h1 style={styles.heading}>How to Contribute</h1>
-            <p style={styles.subtitle}>
-                Follow these steps to contribute to the project.
+        <div className="w-full max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-14 text-(--text)">
+
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-(--text-h)">
+                How to Contribute
+            </h1>
+
+            <p className="text-center text-xs sm:text-sm mt-2 mb-10">
+                Follow this standard workflow to contribute efficiently.
             </p>
 
-            <div style={styles.stepsContainer}>
+            <div className="relative border-l border-(--border) ml-3 sm:ml-4">
+
                 {steps.map((step, index) => (
-                    <div key={index} style={styles.card}>
-                        <h2 style={styles.stepTitle}>{step.title}</h2>
-                        <p>{step.description}</p>
-                        {step.code && (
-                            <pre style={styles.codeBlock}>
-                                <code>{step.code}</code>
-                            </pre>
-                        )}
+                    <div key={index} className="relative mb-8 pl-6 sm:pl-8">
+
+                        <span className="absolute -left-[7px] sm:-left-[9px] top-1.5 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-(--accent) border border-(--bg)" />
+
+                        <div className="bg-(--code-bg) border border-(--border) rounded-lg p-4 sm:p-5 overflow-hidden">
+
+                            <h2 className="text-sm sm:text-base font-semibold text-(--accent) mb-1 break-words">
+                                {index + 1}. {step.title}
+                            </h2>
+
+                            <p className="text-xs sm:text-sm leading-relaxed break-words">
+                                {step.description}
+                            </p>
+
+                            {step.code && (
+                                <pre className="mt-3 p-3 text-[11px] sm:text-xs bg-(--bg) border border-(--border) rounded-md overflow-x-auto whitespace-pre-wrap break-words">
+                                    <code className="break-words">
+                                        {step.code}
+                                    </code>
+                                </pre>
+                            )}
+
+                        </div>
                     </div>
                 ))}
             </div>
         </div>
     );
-};
-
-const styles: { [key: string]: React.CSSProperties } = {
-    container: {
-        maxWidth: "800px",
-        margin: "0 auto",
-        padding: "20px",
-        fontFamily: "Arial, sans-serif",
-    },
-    heading: {
-        textAlign: "center",
-    },
-    subtitle: {
-        textAlign: "center",
-        color: "#666",
-    },
-    stepsContainer: {
-        marginTop: "20px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "16px",
-    },
-    card: {
-        border: "1px solid #cab2b2",
-        borderRadius: "8px",
-        padding: "16px",
-        backgroundColor: "#000000",
-    },
-    stepTitle: {
-        marginBottom: "8px",
-    },
-    codeBlock: {
-        backgroundColor: "#222",
-        color: "#0f0",
-        padding: "10px",
-        borderRadius: "6px",
-        marginTop: "8px",
-        overflowX: "auto",
-    },
-};
-
-export default HowToContribute;
+}
