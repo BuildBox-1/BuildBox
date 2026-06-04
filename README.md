@@ -80,7 +80,7 @@ Add a back link so users can return to the home page:
 ```tsx
 import { Link } from 'react-router'
 
-<Link to="/" className="font-mono text-xs text-[var(--text)] hover:text-[var(--accent)]">
+<Link to="/" className="font-mono text-xs text-(--text) hover:text-(--accent)">
   ← Back
 </Link>
 ```

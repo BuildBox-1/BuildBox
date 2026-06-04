@@ -9,4 +9,10 @@ export interface Project {
     slug: string
 }
 
+export interface ProjectBuild {
+    slug: string
+    contributor: string
+    component: () => Promise<{ default: React.ComponentType }>
+}
+
 export type FilterType = 'all' | ProjectCategory
