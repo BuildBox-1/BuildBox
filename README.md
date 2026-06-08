@@ -6,6 +6,8 @@ A collection of mini projects built by contributors to practice Git, GitHub coll
 
 BuildBox is a shared React codebase where contributors pick a project, build it on their own branch, and submit a pull request. Whether you're new to Git or an experienced developer, there's something here for you.
 
+## Please don't add or create PR without looking at "[how to contribute](/src/components/Contribution.tsx)" .. 
+
 ## Tech stack
 
 - [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
