@@ -28,4 +28,9 @@ export const builds: ProjectBuild[] = [
         contributor: 'Flashyfury',
         component: () => import('../pages/QrCodeGenerator/Flashyfury'),
     },
+     {
+        slug: 'password-generator',
+        contributor: 'Rahul',
+        component: () => import('../pages/PasswordGenerator/Rahul'),
+    },
 ]
