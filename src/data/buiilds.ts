@@ -23,12 +23,9 @@ export const builds: ProjectBuild[] = [
         contributor: 'raj',
         component: () => import('../pages/TodoApp/raj'),
     },
-<<<<<<< HEAD
     {
         slug: 'qr-code-generator',
         contributor: 'Flashyfury',
         component: () => import('../pages/QrCodeGenerator/Flashyfury'),
     },
-=======
->>>>>>> 20d606a (feat(project-builds): Implement multi-contributor builds)
 ]
