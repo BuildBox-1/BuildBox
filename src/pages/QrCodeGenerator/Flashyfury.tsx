@@ -24,6 +24,7 @@ const defaultOptions: Options = {
 export default function Flashyfury() {
     const [activeTab, setActiveTab] = useState<DataTab>('url');
     const [text, setText] = useState('https://buildbox.dev');
+    const [copied, setCopied] = useState(false);
     
     const qrRef = useRef<HTMLDivElement>(null);
     const [qrCode] = useState(() => new QRCodeStyling(defaultOptions));
@@ -105,6 +106,31 @@ export default function Flashyfury() {
                     <div className="bg-white p-4 rounded-xl shadow-sm w-full max-w-[300px] aspect-square flex items-center justify-center">
                         <div ref={qrRef} className="w-full h-full [&>svg]:w-full [&>svg]:h-full" />
                     </div>
+                </div>
+
+                {/* Actions */}
+                <div className="flex gap-2">
+                    <button
+                        onClick={() => qrCode.download({ extension: 'png', name: 'qr-code' })}
+                        className="flex-1 font-mono text-sm bg-(--accent) text-white px-4 py-2.5 rounded-lg hover:opacity-85 transition-opacity"
+                    >
+                        ↓ Download QR
+                    </button>
+                    <button
+                        onClick={async () => {
+                            const blob = await qrCode.getRawData('png');
+                            if (blob) {
+                                await navigator.clipboard.write([
+                                    new ClipboardItem({ 'image/png': blob }),
+                                ]);
+                                setCopied(true);
+                                setTimeout(() => setCopied(false), 2000);
+                            }
+                        }}
+                        className="flex-1 font-mono text-sm bg-(--code-bg) border border-(--border) text-(--text-h) px-4 py-2.5 rounded-lg hover:text-(--accent) hover:border-(--accent) transition-colors"
+                    >
+                        {copied ? '✓ Copied!' : '⎘ Copy QR'}
+                    </button>
                 </div>
             </div>
         </div>
