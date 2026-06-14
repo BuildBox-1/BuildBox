@@ -43,5 +43,9 @@ export const builds: ProjectBuild[] = [
         contributor: 'Rahul',
         component: () => import('../pages/CurrencyConverter/Rahul'),
     },
-
+    {
+        slug: 'url-shortener',
+        contributor: 'Rahul',
+        component: () => import('../pages/UrlShortener/Rahul'),
+    },
 ]
