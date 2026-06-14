@@ -30,6 +30,11 @@ export const builds: ProjectBuild[] = [
     },
     {
         slug: 'password-generator',
+        contributor: 'raj',
+        component: () => import('../pages/PasswordGenerator/raj'),
+    },
+    {
+        slug: 'password-generator',
         contributor: 'Rahul',
         component: () => import('../pages/PasswordGenerator/Rahul'),
     },
