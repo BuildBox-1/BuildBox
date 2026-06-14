@@ -58,4 +58,9 @@ export const builds: ProjectBuild[] = [
         contributor: 'Rahul',
         component: () => import('../pages/GithubProfileFinder/Rahul'),
     },
+      {
+        slug: 'random-quote-generator',
+        contributor: 'Rahul',
+        component: () => import('../pages/RandomQuoteGenerator/Rahul'),
+    },
 ]
