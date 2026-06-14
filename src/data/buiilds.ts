@@ -32,5 +32,30 @@ export const builds: ProjectBuild[] = [
         slug: 'password-generator',
         contributor: 'raj',
         component: () => import('../pages/PasswordGenerator/raj'),
-    }
+    },
+    {
+        slug: 'password-generator',
+        contributor: 'Rahul',
+        component: () => import('../pages/PasswordGenerator/Rahul'),
+    },
+    {
+        slug: 'calculator',
+        contributor: 'Rahul',
+        component: () => import('../pages/Calculator/Rahul'),
+    },
+    {
+        slug: 'currency-converter',
+        contributor: 'Rahul',
+        component: () => import('../pages/CurrencyConverter/Rahul'),
+    },
+    {
+        slug: 'url-shortener',
+        contributor: 'Rahul',
+        component: () => import('../pages/UrlShortener/Rahul'),
+    },
+     {
+        slug: 'github-profile-finder',
+        contributor: 'Rahul',
+        component: () => import('../pages/GithubProfileFinder/Rahul'),
+    },
 ]
