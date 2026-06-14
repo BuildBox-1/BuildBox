@@ -67,7 +67,7 @@ const raj = () => {
     return (
         <div className="flex flex-col flex-1 px-6 py-10 max-w-lg mx-auto w-full">
             <Link
-                to="/projects/todo-app"
+                to="/projects/password-generator"
                 className="font-mono text-xs text-(--text) hover:text-(--accent) transition-colors mb-8"
             >
                 ← Back
