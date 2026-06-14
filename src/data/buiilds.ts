@@ -68,4 +68,9 @@ export const builds: ProjectBuild[] = [
         contributor: 'Rahul',
         component: () => import('../pages/QrCodeGenerator/Rahul'),
     },
+     {
+        slug: 'notes-app',
+        contributor: 'Rahul',
+        component: () => import('../pages/NotesApp/Rahul'),
+    },
 ]
