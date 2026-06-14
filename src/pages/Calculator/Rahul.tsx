@@ -1,7 +1,6 @@
 import { useState, useCallback } from "react";
 import { Link } from "react-router";
 
-// ── Types ─────────────────────────────────────────────────────────────────────
 type BtnKind = "digit" | "op" | "action" | "equals";
 
 interface CalcState {
@@ -13,7 +12,6 @@ interface CalcState {
 
 const INIT: CalcState = { display: "0", prev: null, op: null, waitNext: false };
 
-// ── Logic ─────────────────────────────────────────────────────────────────────
 function applyOp(a: number, b: number, op: string): number {
     switch (op) {
         case "+": return a + b;
@@ -30,7 +28,6 @@ function fmt(n: number): string {
     return s.length > 12 ? n.toExponential(5) : s;
 }
 
-// ── Button grid ───────────────────────────────────────────────────────────────
 const BUTTONS: { label: string; kind: BtnKind; wide?: boolean }[] = [
     { label: "AC", kind: "action" },
     { label: "+/−", kind: "action" },
@@ -53,7 +50,6 @@ const BUTTONS: { label: string; kind: BtnKind; wide?: boolean }[] = [
     { label: "=", kind: "equals" },
 ];
 
-// ── Button styles ─────────────────────────────────────────────────────────────
 const KIND_STYLE: Record<BtnKind, string> = {
     digit: "bg-[#8748c7] hover:bg-[#9b5ad4] active:bg-[#7338b0] text-white",
     op: "bg-[#6030a0] hover:bg-[#7040b8] active:bg-[#502890] text-white",
@@ -61,13 +57,12 @@ const KIND_STYLE: Record<BtnKind, string> = {
     equals: "bg-[#f5a623] hover:bg-[#f7b540] active:bg-[#e09010] text-white",
 };
 
-// ── App ───────────────────────────────────────────────────────────────────────
 export default function App() {
     const [state, setState] = useState<CalcState>(INIT);
 
     const dispatch = useCallback((label: string) => {
         setState((s) => {
-            // digit / decimal
+        
             if (/^[0-9.]$/.test(label)) {
                 if (label === "." && s.display.includes(".") && !s.waitNext) return s;
                 const next =
@@ -114,7 +109,6 @@ export default function App() {
         <div className="min-h-screen flex items-center justify-center p-4">
             <div className="flex flex-col items-start gap-3 w-72">
 
-                {/* Back button — sits above the card */}
                 <Link
                     to="/projects/calculator"
                     className="font-mono text-xs text-(--text) hover:text-(--accent) transition-colors"
@@ -122,10 +116,8 @@ export default function App() {
                     ← Back
                 </Link>
 
-                {/* Calculator card */}
                 <div className="w-full rounded-3xl overflow-hidden shadow-2xl border border-[#8748c7]/30">
 
-                    {/* Display */}
                     <div className="bg-[#2F4F4F] px-5 pt-8 pb-5">
                         <p className="text-[#d4a8ff] text-sm text-right h-5 mb-1 font-mono">
                             {state.prev !== null && state.op ? `${fmt(state.prev)} ${state.op}` : "\u00A0"}
@@ -138,7 +130,6 @@ export default function App() {
                         </p>
                     </div>
 
-                    {/* Buttons */}
                     <div className="bg-[#1a0a2e] p-3 grid grid-cols-4 gap-2.5">
                         {BUTTONS.map(({ label, kind, wide }) => (
                             <button
