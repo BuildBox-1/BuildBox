@@ -13,8 +13,6 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#09051a] flex items-center justify-center p-6">
       <div className="flex flex-col items-start gap-3 w-full max-w-sm">
-
-        {/* Back button — above the card */}
         <Link
           to="/projects/qr-code-generator"
           className="font-mono text-xs text-(--text) hover:text-(--accent) transition-colors"
@@ -22,7 +20,7 @@ export default function App() {
           ← Back
         </Link>
 
-        {/* Card */}
+
         <div className="w-full rounded-2xl overflow-hidden border border-[#8748c7]/30 shadow-xl shadow-[#8748c7]/10">
 
           <div className="bg-[#8748c7] px-6 py-6">
