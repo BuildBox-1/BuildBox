@@ -48,4 +48,9 @@ export const builds: ProjectBuild[] = [
         contributor: 'Rahul',
         component: () => import('../pages/UrlShortener/Rahul'),
     },
+     {
+        slug: 'github-profile-finder',
+        contributor: 'Rahul',
+        component: () => import('../pages/GithubProfileFinder/Rahul'),
+    },
 ]
