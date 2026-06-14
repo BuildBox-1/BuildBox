@@ -38,4 +38,10 @@ export const builds: ProjectBuild[] = [
         contributor: 'Rahul',
         component: () => import('../pages/Calculator/Rahul'),
     },
+    {
+        slug: 'currency-converter',
+        contributor: 'Rahul',
+        component: () => import('../pages/CurrencyConverter/Rahul'),
+    },
+
 ]
