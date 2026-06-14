@@ -53,14 +53,19 @@ export const builds: ProjectBuild[] = [
         contributor: 'Rahul',
         component: () => import('../pages/UrlShortener/Rahul'),
     },
-     {
+    {
         slug: 'github-profile-finder',
         contributor: 'Rahul',
         component: () => import('../pages/GithubProfileFinder/Rahul'),
     },
-      {
+    {
         slug: 'random-quote-generator',
         contributor: 'Rahul',
         component: () => import('../pages/RandomQuoteGenerator/Rahul'),
+    },
+    {
+        slug: 'qr-code-generator',
+        contributor: 'Rahul',
+        component: () => import('../pages/QrCodeGenerator/Rahul'),
     },
 ]
