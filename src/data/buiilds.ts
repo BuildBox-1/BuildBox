@@ -68,9 +68,14 @@ export const builds: ProjectBuild[] = [
         contributor: 'Rahul',
         component: () => import('../pages/QrCodeGenerator/Rahul'),
     },
-     {
+    {
         slug: 'notes-app',
         contributor: 'Rahul',
         component: () => import('../pages/NotesApp/Rahul'),
+    },
+    {
+        slug: 'pomodoro-timer',
+        contributor: 'Rahul',
+        component: () => import('../pages/PomodoroTimer/Rahul'),
     },
 ]
