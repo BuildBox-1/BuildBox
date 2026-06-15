@@ -53,7 +53,6 @@ export default function App() {
           ← Back
         </Link>
 
-        {/* Card */}
         <div className="w-full rounded-2xl overflow-hidden border border-[#8748c7]/30 shadow-xl shadow-[#8748c7]/10">
 
           <div className="bg-[#8748c7] px-6 py-5 flex items-center justify-between">

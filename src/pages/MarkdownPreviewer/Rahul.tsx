@@ -30,7 +30,6 @@ export default function App() {
             >
                 ← Back
             </Link>
-            {/* Header */}
             <div className="bg-[#8748c7] px-5 py-4 flex items-center justify-between flex-shrink-0">
                 <h1 className="text-white font-semibold">Markdown Previewer</h1>
                 <div className="flex gap-1">
@@ -47,7 +46,6 @@ export default function App() {
                 </div>
             </div>
 
-            {/* Content */}
             {tab === "edit" ? (
                 <textarea
                     value={md}
