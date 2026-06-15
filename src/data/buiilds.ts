@@ -83,4 +83,9 @@ export const builds: ProjectBuild[] = [
         contributor: 'Rahul',
         component: () => import('../pages/MarkdownPreviewer/Rahul'),
     },
+    {
+        slug: 'ai-prompt-library',
+        contributor: 'Rahul',
+        component: () => import('../pages/AIPromptLibrary/Rahul'),
+    },
 ]
