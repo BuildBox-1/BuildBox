@@ -78,4 +78,9 @@ export const builds: ProjectBuild[] = [
         contributor: 'Rahul',
         component: () => import('../pages/PomodoroTimer/Rahul'),
     },
+    {
+        slug: 'markdown-previewer',
+        contributor: 'Rahul',
+        component: () => import('../pages/MarkdownPreviewer/Rahul'),
+    },
 ]
