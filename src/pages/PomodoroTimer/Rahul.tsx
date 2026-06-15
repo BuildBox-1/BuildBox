@@ -17,7 +17,6 @@ export default function App() {
     const [sessions, setSessions] = useState(0);
     const interval = useRef<ReturnType<typeof setInterval> | null>(null);
 
-    // tick
     useEffect(() => {
         if (running) {
             interval.current = setInterval(() => setTime(t => t - 1), 1000);
@@ -27,7 +26,7 @@ export default function App() {
         return () => { if (interval.current) clearInterval(interval.current); };
     }, [running]);
 
-    // when time hits 0
+ 
     useEffect(() => {
         if (time > 0) return;
         setRunning(false);
