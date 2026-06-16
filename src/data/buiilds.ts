@@ -88,9 +88,14 @@ export const builds: ProjectBuild[] = [
         contributor: 'Rahul',
         component: () => import('../pages/AIPromptLibrary/Rahul'),
     },
-      {
+    {
         slug: 'typing-speed-test',
         contributor: 'Rahul',
         component: () => import('../pages/TypingSpeedTest/Rahul'),
+    },
+    {
+        slug: 'bmi-calculator',
+        contributor: 'Rahul',
+        component: () => import('../pages/BMICalculator/Rahul'),
     },
 ]
