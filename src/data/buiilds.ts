@@ -98,4 +98,9 @@ export const builds: ProjectBuild[] = [
         contributor: 'Rahul',
         component: () => import('../pages/BMICalculator/Rahul'),
     },
+    {
+        slug: 'unit-converter',
+        contributor: 'Rahul',
+        component: () => import('../pages/UnitConverter/Rahul'),
+    },
 ]
