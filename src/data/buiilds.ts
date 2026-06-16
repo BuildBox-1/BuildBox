@@ -53,9 +53,54 @@ export const builds: ProjectBuild[] = [
         contributor: 'Rahul',
         component: () => import('../pages/UrlShortener/Rahul'),
     },
-     {
+    {
         slug: 'github-profile-finder',
         contributor: 'Rahul',
         component: () => import('../pages/GithubProfileFinder/Rahul'),
+    },
+    {
+        slug: 'random-quote-generator',
+        contributor: 'Rahul',
+        component: () => import('../pages/RandomQuoteGenerator/Rahul'),
+    },
+    {
+        slug: 'qr-code-generator',
+        contributor: 'Rahul',
+        component: () => import('../pages/QrCodeGenerator/Rahul'),
+    },
+    {
+        slug: 'notes-app',
+        contributor: 'Rahul',
+        component: () => import('../pages/NotesApp/Rahul'),
+    },
+    {
+        slug: 'pomodoro-timer',
+        contributor: 'Rahul',
+        component: () => import('../pages/PomodoroTimer/Rahul'),
+    },
+    {
+        slug: 'markdown-previewer',
+        contributor: 'Rahul',
+        component: () => import('../pages/MarkdownPreviewer/Rahul'),
+    },
+    {
+        slug: 'ai-prompt-library',
+        contributor: 'Rahul',
+        component: () => import('../pages/AIPromptLibrary/Rahul'),
+    },
+    {
+        slug: 'typing-speed-test',
+        contributor: 'Rahul',
+        component: () => import('../pages/TypingSpeedTest/Rahul'),
+    },
+    {
+        slug: 'bmi-calculator',
+        contributor: 'Rahul',
+        component: () => import('../pages/BMICalculator/Rahul'),
+    },
+    {
+        slug: 'unit-converter',
+        contributor: 'Rahul',
+        component: () => import('../pages/UnitConverter/Rahul'),
     },
 ]

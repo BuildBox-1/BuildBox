@@ -74,7 +74,7 @@ export default function App() {
                 >
                     ← Back
                 </Link>
-                {/* Header */}
+               
                 <div className="text-center mb-6">
                     <p className="text-[10px] tracking-[0.22em] text-[#8748c7] uppercase font-medium mb-1">
                         Live Rates · Auto-convert
@@ -84,10 +84,8 @@ export default function App() {
                     </h1>
                 </div>
 
-                {/* Card */}
                 <div className="bg-[#161028] border border-[#8748c7]/30 rounded-2xl">
 
-                    {/* Amount */}
                     <div className="px-5 pt-5 pb-4">
                         <label className="text-[11px] text-[#8748c7] font-medium uppercase tracking-widest">
                             Amount
@@ -104,7 +102,6 @@ export default function App() {
 
                     <div className="h-px bg-[#8748c7]/10 mx-5" />
 
-                    {/* From → swap → To */}
                     <div className="px-5 py-4 space-y-2">
                         <div>
                             <label className="text-[11px] text-[#8748c7] font-medium uppercase tracking-widest">From</label>
@@ -130,7 +127,6 @@ export default function App() {
                         </div>
                     </div>
 
-                    {/* Result */}
                     <div className="h-px bg-[#8748c7]/10 mx-5" />
                     <div className="px-5 py-4 min-h-[80px] flex items-center">
                         {loading ? (

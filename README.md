@@ -22,8 +22,8 @@ BuildBox is a shared React codebase where contributors pick a project, build it 
 ## Getting started
 
 ```bash
-git clone https://github.com/your-org/buildbox.git
-cd buildbox
+git clone https://github.com/BuildBox-1/BuildBox.git
+cd BuildBox
 npm install
 npm run dev
 ```
