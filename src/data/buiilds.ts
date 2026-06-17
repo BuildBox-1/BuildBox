@@ -103,4 +103,9 @@ export const builds: ProjectBuild[] = [
         contributor: 'Rahul',
         component: () => import('../pages/UnitConverter/Rahul'),
     },
+    {
+        slug: 'wake-up-cunt',
+        contributor: 'Flashyfury',
+        component: () => import('../pages/WakeupCunt/Flashyfury'),
+    },
 ]
