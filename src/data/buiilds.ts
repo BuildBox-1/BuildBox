@@ -103,4 +103,9 @@ export const builds: ProjectBuild[] = [
         contributor: 'Rahul',
         component: () => import('../pages/UnitConverter/Rahul'),
     },
+    {
+        slug: 'github-profile-finder',
+        contributor: "Raj",
+        component: () => import("../pages/GithubFinder/raj"),
+    }
 ]
