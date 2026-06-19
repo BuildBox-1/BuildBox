@@ -31,6 +31,7 @@ export const projects: Project[] = [
     { name: 'Typing Speed Test', icon: '⌨', tag: 'tool', cat: 'tool', slug: 'typing-speed-test' },
     { name: 'Rock Paper Scissors', icon: '✊', tag: 'game', cat: 'game', slug: 'rock-paper-scissors' },
     { name: 'Tic-Tac-Toe', icon: '#', tag: 'game', cat: 'game', slug: 'tic-tac-toe' },
+    { name: 'Wake-up Cunt!', icon: '⏰', tag: 'tool', cat: 'tool', slug: 'wake-up-cunt' },
 ]
 
 export const FILTERS: { label: string; value: 'all' | Project['cat'] }[] = [
