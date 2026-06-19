@@ -107,5 +107,15 @@ export const builds: ProjectBuild[] = [
         slug: 'github-profile-finder',
         contributor: "Raj",
         component: () => import("../pages/GithubFinder/raj"),
-    }
+    },
+    {
+        slug: 'wake-up-cunt',
+        contributor: 'Flashyfury',
+        component: () => import('../pages/WakeupCunt/Flashyfury'),
+    },
+    {
+        slug: 'resume-builder',
+        contributor: 'Rahul',
+        component: () => import('../pages/ResumeBuilder/Rahul'),
+    },
 ]
