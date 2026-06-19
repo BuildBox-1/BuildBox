@@ -108,4 +108,9 @@ export const builds: ProjectBuild[] = [
         contributor: 'Flashyfury',
         component: () => import('../pages/WakeupCunt/Flashyfury'),
     },
+    {
+        slug: 'resume-builder',
+        contributor: 'Rahul',
+        component: () => import('../pages/ResumeBuilder/Rahul'),
+    },
 ]
