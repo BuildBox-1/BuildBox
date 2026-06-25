@@ -118,4 +118,9 @@ export const builds: ProjectBuild[] = [
         contributor: 'Rahul',
         component: () => import('../pages/ResumeBuilder/Rahul'),
     },
+    {
+        slug: 'quiz-app',
+        contributor: 'Rahul',
+        component: () => import('../pages/QuizApp/Rahul'),
+    },
 ]
