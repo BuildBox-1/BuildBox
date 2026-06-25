@@ -123,4 +123,9 @@ export const builds: ProjectBuild[] = [
         contributor: 'Rahul',
         component: () => import('../pages/QuizApp/Rahul'),
     },
+    {
+        slug: 'tic-tac-toe',
+        contributor: 'Rahul',
+        component: () => import('../pages/Tictactoe/Rahul'),
+    }
 ]
