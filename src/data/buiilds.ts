@@ -127,5 +127,10 @@ export const builds: ProjectBuild[] = [
         slug: 'tic-tac-toe',
         contributor: 'Rahul',
         component: () => import('../pages/Tictactoe/Rahul'),
+    },
+    {
+        slug: 'color-palette-generator',
+        contributor: 'Rahul',
+        component: () => import('../pages/ColorPaletteGenerator/Rahul'),
     }
 ]
